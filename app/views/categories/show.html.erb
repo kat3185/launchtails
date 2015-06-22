@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="large-12">
+    <h1>Drinks for category: <%= @category.first.name %></h1>
+
+    <div>
+      <ul>
+        <% @drinks.each do |drink| %>
+        <li><%= drink.title %></li>
+        <% end %>
+      </ul>
+    </div>
+
+
+      <%= link_to 'Create a Drink', new_drink_path %><br>
+      <%= link_to 'Back to Drinks!', drinks_path %><br>
+      <%= link_to 'All featured drinks!', featured_drinks_path %>
+  </div>
+</div>

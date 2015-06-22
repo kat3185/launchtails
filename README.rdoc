@@ -1,0 +1,36 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+We have supplied a seed file for you. Running rake db:seed will supply featured and nonfeatured drinks in your development environment.
+Run rails server in your terminal to run the web server.
+We've created some files already for you.
+ [x] For creating and listing drinks, modify your config/routes.rb to refer to the DrinksController. Be sure to restrict your routes so that editing and updating is not possible.
+ [x]For deleting drinks, we've left the implementation up to you. Define and implement the appropriate method in DrinksController.
+ [ ]For listing featured drinks, we've created the appropriate controller and view for you. Implement the appropriate controller method and routing to feed the view with the intended data in order to get the tests in spec/features/visitor_views_featured_drinks_spec.rb to pass.
+ [x]Map the root so that when I navigate to '/', I see a list of featured drinks.

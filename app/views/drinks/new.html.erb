@@ -1,0 +1,38 @@
+<div class="row">
+  <%- if @drink.errors.present? -%>
+    <div class="large-12 alert-box alert" data-alert>
+      <ul>
+        <%- @drink.errors.full_messages.each do |error| -%>
+          <li><%= error %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <%- end -%>
+
+  <div class="large-12">
+    <h1>New Drink</h1>
+
+    <%= form_for @drink do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <%= check_box_tag(:featured) %>
+      <%= label_tag(:featured, "Featured") %>
+
+      <%= f.label :category_id %>
+      <%= f.select(:category_id, Category.all.map { |a| [a.name, a.id] } ) %>
+
+      <%= radio_button_tag(:alcohol_level, "low") %>
+      <%= label_tag(:alcohol_level_low, "Low") %>
+      <%= radio_button_tag(:alcohol_level, "medium") %>
+      <%= label_tag(:alcohol_level_medium, "Medium") %>
+      <%= radio_button_tag(:alcohol_level, "high") %>
+      <%= label_tag(:alcohol_level_high, "High") %>
+
+      <%= f.submit "Add Drink" %>
+    <%- end -%>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="large-12">
+    <h1>Featured Drinks</h1>
+
+    <%- if !@drinks.empty? -%>
+      <table>
+        <tr>
+          <th>Featured Drinks</th>
+          <th>Description</th>
+          <th>Category</th>
+        </tr>
+
+        <%- @drinks.each do |drink| -%>
+        <% if drink.featured %>
+          <tr>
+            <td><%= drink.title %></td>
+            <td><%= drink.description.truncate(30) %></td>
+            <td><%= link_to drink.category.name, category_drinks_path(drink) if drink.category %></td>
+          </tr>
+          <% end %>
+        <%- end -%>
+      </table>
+
+      <%= paginate @drinks %>
+    <%- end -%>
+
+    <%= link_to 'All drinks!', drinks_path %><br>
+    <%= link_to 'New drink!', new_drink_path %>
+  </div>
+</div>

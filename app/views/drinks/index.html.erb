@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="large-12">
+    <h1>Drinks</h1>
+
+    <%- if !@drinks.empty? -%>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th></th>
+        </tr>
+
+        <%- @drinks.each do |drink| -%>
+          <tr>
+            <td><%= drink.title %></td>
+            <td><%= truncate(drink.description, length: 30) %></td>
+            <td><%= link_to drink.category.name, category_drinks_path(drink.category_id) if drink.category %></td>
+            <td>
+              <%= link_to 'Delete',
+                '/drinks/' + drink.to_param,
+                method: :delete %>
+            </td>
+          </tr>
+        <%- end -%>
+      </table>
+
+      <%= paginate @drinks %>
+    <%- end -%>
+
+    <%= link_to 'Create a drink', new_drink_path %><br>
+    <%= link_to 'Featured Drinks!', featured_drinks_path %>
+  </div>
+</div>
