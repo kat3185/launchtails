@@ -1,6 +1,8 @@
 class DrinksController < ApplicationController
   def new
     @drink = Drink.new
+    # @alcohol_levels = ['Low', 'Medium', 'High']
+
   end
 
   def create
@@ -18,13 +20,14 @@ class DrinksController < ApplicationController
   end
 
   def destroy
-    Drink.destroy(params[:id])
+    @drink = Drink.find(params[:id])
+    @drink.destroy
     flash[:notice] = "Drink deleted."
     redirect_to drinks_path
   end
 
   protected
   def drink_params
-    params.require(:drink).permit(:title, :description, :category_id)
+    params.require(:drink).permit(:title, :description, :category_id, :featured, :alcohol_level)
   end
 end

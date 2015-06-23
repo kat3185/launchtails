@@ -3,12 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :drinks, except: [:edit, :update]
-  #   get 'featured', to: 'featured_drinks#index'
-  # end
 
-  resources :featured_drinks, only: [:index]
+  # resources :featured_drinks, only: [:index]
+  get 'featured-drinks', to: 'featured_drinks#index'
 
-  resources :categories, only: [:index, :show] do
+  resources :categories, only: [:index, :show, :new, :create] do
     get 'drinks', to: 'categories#show'
   end
 

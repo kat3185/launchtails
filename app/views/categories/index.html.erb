@@ -2,5 +2,14 @@
   <div class="large-12">
     <h1>Categories</h1>
 
+
+    <% @categories.each do |category| %>
+  <li> <%= category.name %></li>
+    <% end %>
+
+    <%= link_to 'Create a category!', new_category_path %><br>
+    <%= link_to 'Create a drink', new_drink_path %><br>
+    <%= link_to 'Back to Drinks!', drinks_path %><br>
+    <%= link_to 'Featured Drinks!', featured_drinks_path %>
   </div>
 </div>

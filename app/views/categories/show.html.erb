@@ -14,5 +14,6 @@
       <%= link_to 'Create a Drink', new_drink_path %><br>
       <%= link_to 'Back to Drinks!', drinks_path %><br>
       <%= link_to 'All featured drinks!', featured_drinks_path %>
+      <%= link_to @category.first.name, categories_path %>
   </div>
 </div>

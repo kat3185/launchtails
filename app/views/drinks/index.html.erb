@@ -8,6 +8,7 @@
           <th>Title</th>
           <th>Description</th>
           <th>Category</th>
+          <th>Alcohol Level</th>
           <th></th>
         </tr>
 
@@ -16,9 +17,10 @@
             <td><%= drink.title %></td>
             <td><%= truncate(drink.description, length: 30) %></td>
             <td><%= link_to drink.category.name, category_drinks_path(drink.category_id) if drink.category %></td>
+            <td><%= drink.alcohol_level %></td>
             <td>
               <%= link_to 'Delete',
-                '/drinks/' + drink.to_param,
+                drink_path(drink.id),
                 method: :delete %>
             </td>
           </tr>
@@ -28,6 +30,8 @@
       <%= paginate @drinks %>
     <%- end -%>
 
+    <%= link_to 'Create a category!', new_category_path %><br>
+    <%= link_to 'Categories', categories_path %><br>
     <%= link_to 'Create a drink', new_drink_path %><br>
     <%= link_to 'Featured Drinks!', featured_drinks_path %>
   </div>
