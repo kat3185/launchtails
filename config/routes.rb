@@ -4,12 +4,19 @@ Rails.application.routes.draw do
 
   resources :drinks, except: [:edit, :update]
 
-  # resources :featured_drinks, only: [:index]
   get 'featured-drinks', to: 'featured_drinks#index'
 
-  resources :categories, only: [:index, :show, :new, :create] do
-    get 'drinks', to: 'categories#show'
+  resources :categories, only: [:show] do
+    resources :drinks, to: 'categories#show'
   end
+
+  resources :categories, only: [:index, :new, :create]
+  scope '/admin' do
+    resources :drinks, only: [:edit, :update]
+  end
+
+  # resources :drinks, only: [:edit, :update], path: 'admin/drinks'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -14,7 +14,7 @@ feature 'visitor creates drink', %Q{
 
   scenario 'add a valid drink' do
     category = FactoryGirl.create(:category)
-    drink_title = 'Pumpkin Martini'
+    drink_title = 'Pumpkin Martinis'
     visit new_drink_path
 
     fill_in 'Title', with: drink_title

@@ -9,7 +9,8 @@
           <th>Description</th>
           <th>Category</th>
           <th>Alcohol Level</th>
-          <th></th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
 
         <%- @drinks.each do |drink| -%>
@@ -18,6 +19,7 @@
             <td><%= truncate(drink.description, length: 30) %></td>
             <td><%= link_to drink.category.name, category_drinks_path(drink.category_id) if drink.category %></td>
             <td><%= drink.alcohol_level %></td>
+            <td><%= link_to "Edit", edit_drink_path(drink.id) %>
             <td>
               <%= link_to 'Delete',
                 drink_path(drink.id),
